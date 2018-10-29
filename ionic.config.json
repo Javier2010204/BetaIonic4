@@ -1,0 +1,7 @@
+{
+  "name": "MotoSastre",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
