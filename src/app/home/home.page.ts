@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { AlertController, LoadingController } from '@ionic/angular';
+import { Component, ViewChild } from '@angular/core';
+import { AlertController, LoadingController, NavController } from '@ionic/angular';
 import { Router, ActivatedRoute } from '@angular/router';
 import * as firebase from 'firebase';
 
@@ -22,10 +22,11 @@ export const snapshotToArray = snapshot => {
 
 export class HomePage {
 
+  key=null;
   infos = [];
   ref = firebase.database().ref('infos/');
 
-  constructor(public router : Router, public loadingController : LoadingController, public alertController : AlertController){
+  constructor(public router : Router, public loadingController : LoadingController, public alertController : AlertController, private activatedRoute:ActivatedRoute, public navCtrl:NavController){
     this.ref.on('value', resp => {
       this.infos = [];
       this.infos = snapshotToArray(resp);
@@ -37,7 +38,7 @@ export class HomePage {
   }
 
   edit(key){
-    this.router.navigate(['/edit/'+key]);
+    this.router.navigateByUrl(`/edit/${this.key}`);
   }
 
   async delete(key){
@@ -62,5 +63,9 @@ export class HomePage {
     });
 
     await alert.present();
+  }
+
+  pushToEdit(){
+    this.navCtrl
   }
 }

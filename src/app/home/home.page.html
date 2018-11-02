@@ -12,12 +12,13 @@
 <ion-content>
   <ion-list>
     <ion-item-sliding *ngFor="let info of infos">
-      <ion-item detail lines="full" routerLink="/detail/{{info.key}}">
+      <ion-item detail lines="full" [routerLink]="['/detail', info.key]">
         <ion-icon name="desktop" slot="start"></ion-icon>
         {{info.info_title}}
       </ion-item>
+      <button color="tertiary" (click)="pushToEdit()">Editamela</button>
       <ion-item-options side="end">
-        <ion-item-option color="primary" (click)="edit(info.key)">Editar</ion-item-option>
+        <ion-item-option color="primary" [routerLink]="['/edit', info.key]">Editar</ion-item-option>
         <ion-item-option color="danger" (click)="delete(info.key)">Eliminar</ion-item-option>
       </ion-item-options>
     </ion-item-sliding>

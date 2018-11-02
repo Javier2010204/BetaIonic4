@@ -15,15 +15,17 @@ export const snapshotToObject = snapshot => {
 })
 export class DetailPage implements OnInit {
 
+  id = null;
   info = {}
 
   constructor(private route : ActivatedRoute, public router : Router) { 
-    firebase.database().ref('infos/'+this.route.snapshot.paramMap.get('key')).on('value', resp => {
+    firebase.database().ref('infos/'+this.route.snapshot.paramMap.get('id')).on('value', resp => {
       this.info = snapshotToObject(resp);
     })
   }
 
   ngOnInit() {
+    this.id = this.route.snapshot.paramMap.get('id');
   }
 
 }
