@@ -17,7 +17,9 @@ export class CreatePage implements OnInit {
   constructor( private route:ActivatedRoute, public router: Router, private formBuilder:FormBuilder) { 
     this.infoForm = this.formBuilder.group({
       'info_title' : [null, Validators.required],
-      'info_description': [null, Validators.required]
+      'info_description': [null, Validators.required],
+      'info_price': [null, Validators.required],
+      'info_quantity': [null, Validators.required]
     })
   }
 

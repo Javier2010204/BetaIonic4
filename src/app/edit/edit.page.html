@@ -14,8 +14,16 @@
       <ion-input type="text" formControlName="info_title"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label position="floating">Detalle Info</ion-label>
+      <ion-label position="floating">Descripcion</ion-label>
       <ion-input type="text" formControlName="info_description"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Cantidad en stock</ion-label>
+      <ion-input type="number" formControlName="info_quantity"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Precio por unidad</ion-label>
+      <ion-input type="number" formControlName="info_price"></ion-input>
     </ion-item>
     <ion-button shape="round" color="primary" expand="block" [disabled]="!infoForm.valid" (click)="updateInfo()">Guardar</ion-button>
   </form>

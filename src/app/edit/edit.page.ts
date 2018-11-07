@@ -40,7 +40,9 @@ export class EditPage implements OnInit {
       console.log(resp.val());
       this.infoForm = this.formBuilder.group({
         'info_title' : [resp.val().info_title, Validators.required],
-        'info_description' : [resp.val().info_description, Validators.required]
+        'info_description' : [resp.val().info_description, Validators.required],
+        'info_quantity' : [resp.val().info_quantity, Validators.required],
+        'info_price' : [resp.val().info_price, Validators.required]
       });
     })
     

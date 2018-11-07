@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Lista de Información
+      Inventario de productos
     </ion-title>
     <ion-buttons slot="end">
       <ion-button routerLink="/create"><ion-icon name="add-circle"></ion-icon></ion-button>
@@ -10,17 +10,16 @@
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <ion-item-sliding *ngFor="let info of infos">
-      <ion-item detail lines="full" [routerLink]="['/detail', info.key]">
-        <ion-icon name="desktop" slot="start"></ion-icon>
-        {{info.info_title}}
-      </ion-item>
-      <button color="tertiary" (click)="pushToEdit()">Editamela</button>
-      <ion-item-options side="end">
-        <ion-item-option color="primary" [routerLink]="['/edit', info.key]">Editar</ion-item-option>
-        <ion-item-option color="danger" (click)="delete(info.key)">Eliminar</ion-item-option>
-      </ion-item-options>
-    </ion-item-sliding>
+  <ion-list *ngFor="let info of infos">
+    <ion-card class="text-center">
+      <ion-card-header>
+        <h1 class="white-text text-center big-font">{{info.info_title}}</h1>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-button [routerLink]="['/detail', info.key]">Ver</ion-button>
+        <ion-button [routerLink]="['/edit', info.key]" color="secondary">Editar</ion-button>
+        <ion-button (click)="delete(info.key)" color="danger">Eliminar</ion-button>
+      </ion-card-content>
+    </ion-card>
   </ion-list>
 </ion-content>

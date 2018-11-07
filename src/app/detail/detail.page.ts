@@ -15,7 +15,7 @@ export const snapshotToObject = snapshot => {
 })
 export class DetailPage implements OnInit {
 
-  id = null;
+  id = '';
   info = {}
 
   constructor(private route : ActivatedRoute, public router : Router) { 

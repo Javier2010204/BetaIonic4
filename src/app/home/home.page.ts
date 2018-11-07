@@ -22,7 +22,7 @@ export const snapshotToArray = snapshot => {
 
 export class HomePage {
 
-  key=null;
+  key='';
   infos = [];
   ref = firebase.database().ref('infos/');
 
@@ -31,6 +31,10 @@ export class HomePage {
       this.infos = [];
       this.infos = snapshotToArray(resp);
     })
+  }
+
+  sendInfo(){
+    this.router.navigateByUrl(`/detail/${this.key}`);
   }
 
   addInfo(){
@@ -63,9 +67,5 @@ export class HomePage {
     });
 
     await alert.present();
-  }
-
-  pushToEdit(){
-    this.navCtrl
   }
 }
